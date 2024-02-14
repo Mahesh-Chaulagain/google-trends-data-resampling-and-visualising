@@ -1,0 +1,10 @@
+# .describe() function
+-> used to see some useful descriptive statistics like mean, std, max etc.
+
+# .resample() function
+-> resample a time series to a different frequency
+-> to convert daily data into monthly data or vice versa and so on 
+-> need to specify which column to use and what kind of sample frequency we want
+-> Example: if we want "DATE" column to be resampled with monthly frequency "M" and get the price at month-end
+   then 
+	df_btc_monthly = df_btc_price.resample('M', on='DATE').last()
