@@ -8,3 +8,29 @@
 -> Example: if we want "DATE" column to be resampled with monthly frequency "M" and get the price at month-end
    then 
 	df_btc_monthly = df_btc_price.resample('M', on='DATE').last()
+
+# .show() function
+-> used to explicitly display the chart below the cell
+
+# .set_ylim() and .set_xlim()
+-> using them we have precise control over which data we want to show on the chart
+-> can either choose hard values(e.g from 0 to 600) or use the .min() and .max() function to help you work out
+   the bounds for the chart
+
+# Locators helpers
+-> helps to get the tick mark on charts looking the way you want to when working with time series
+-> for this first we have to import the dates from matplotlib.dates
+	import matplotlib.dates as mdates
+-> next we need a YearLocator() and MonthLocator() objects, which will help matplotlib find the years and months
+-> also need a DateFormatter() which will help us specify how we want to display the dates 
+	
+	# Create locators for ticks on the time axis
+	years = mdates.YearLocator()
+	months = mdates.MonthLocator()
+	years_fmt = mdates.DateFormatter('%Y')
+	
+	# format the ticks
+	ax1.xaxis.set_major_locator(years)
+	ax1.xaxis.set_major_formatter(years_fmt)
+	ax1.xaxis.set_minor_locator(months)
+
